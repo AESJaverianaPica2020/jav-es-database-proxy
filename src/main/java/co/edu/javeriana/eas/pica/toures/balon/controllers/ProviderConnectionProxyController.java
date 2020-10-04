@@ -17,14 +17,14 @@ import java.util.UUID;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("provider")
+@RequestMapping("/V1/Utility/db-proxy")
 public class ProviderConnectionProxyController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProviderConnectionProxyController.class);
 
     private IProviderHandlerManagementConnection providerHandlerManagementConnection;
 
-    @PostMapping
+    @PostMapping("provider")
     public ResponseEntity<RequestBaseDto> validateConnection(@RequestHeader("X-Engine") EngineType engineType,
                                                              @RequestBody JsonNode parameters) {
         UUID uuid = UUID.randomUUID();
